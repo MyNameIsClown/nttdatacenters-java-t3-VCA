@@ -1,68 +1,68 @@
 package nttdata.javat3.business;
 
+import org.joda.time.LocalDate;
+
 /**
  * Clase encargada del almacenamiento de la informacion de una persona
+ * 
  * @author Victor Carrasco
  *
  */
 public class Person {
-	/** numero unico encargado de identificar a una persona*/
-	public Integer DNI;
-	/** nombre completo de la persona*/
-	public String nombreCompleto;
-	/** Array fecha de nacimiento (day/month/year)*/
-	public Integer fechaNacimiento[];
-	
-	/** DNI Getter*/
-	public Integer getDNI() {
-		return DNI;
+	/** numero unico encargado de identificar a una persona */
+	private Integer dni;
+	/** nombre completo de la persona */
+	private String nombreCompleto;
+	/** fecha de nacimiento */
+	private LocalDate fechaNacimiento;
+
+	/** DNI Getter */
+	public Integer getDni() {
+		return dni;
 	}
 
-	/** DNI Setter*/
-	public void setDNI(Integer dNI) {
-		DNI = dNI;
+	/** DNI Setter */
+	public void setDni(Integer dNI) {
+		dni = dNI;
 	}
 
-	/** Nombre Completo Getter*/
+	/** Nombre Completo Getter */
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
 
-	/** Nombre Completo Setter*/
+	/** Nombre Completo Setter */
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}
 
-	/** Fecha Nacimiento Getter*/
+	/** Fecha Nacimiento Getter */
 	public String getFechaNacimiento() {
-		return this.fechaNacimiento[0]+"/"+this.fechaNacimiento[1]+"/"+this.fechaNacimiento[2];
+		return this.fechaNacimiento.toString();
 	}
 
-	/** Fecha Nacimiento Setter*/
+	/** Fecha Nacimiento Setter */
 	public void setFechaNacimiento(int day, int month, int year) {
-		Integer fechaTemporal[] = null;
-		if((day>=1&&day<=31)&&(month>=1&&month<=12)&&(year<2023)) {
-			fechaTemporal = new Integer[] {day, month, year};
-			this.fechaNacimiento = fechaTemporal;
-			System.out.println("fecha Introducida con exito");
-		}else {
-			System.out.println("Incorrect Date");
-		}
+		this.fechaNacimiento = new LocalDate(year, month, day);
 	}
 
+	/** Fecha Nacimiento Setter */
+	public void setFechaNacimiento(LocalDate localDate) {
+		this.fechaNacimiento = localDate;
+	}
 
-	/**Contructor*/
+	/** Contructor */
 	public Person(Integer dni, String nombreCompleto, int day, int month, int year) {
 		super();
-		this.DNI = dni;
+		this.dni = dni;
 		this.nombreCompleto = nombreCompleto;
-		setFechaNacimiento(day, month, year);
+		this.fechaNacimiento = new LocalDate(year, month, day);
 	}
-	
-	/**Metodo que muestra los datos de la persona*/
+
+	/** Metodo que muestra los datos de la persona */
 	public void showDetails() {
-		System.out.println("Nombre: " + this.getNombreCompleto() + "\nDNI: " 
-				+ this.getDNI() + "\nFechaNacimiento: " + this.getFechaNacimiento());
+		System.out.println("Nombre: " + this.getNombreCompleto() + "\nDNI: " + this.getDni() + "\nFechaNacimiento: "
+				+ this.getFechaNacimiento());
 	}
-	
+
 }
