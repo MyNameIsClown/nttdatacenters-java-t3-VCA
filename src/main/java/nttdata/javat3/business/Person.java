@@ -12,9 +12,9 @@ public class Person {
 	/** numero unico encargado de identificar a una persona */
 	private Integer dni;
 	/** nombre completo de la persona */
-	private String nombreCompleto;
+	private String name;
 	/** fecha de nacimiento */
-	private LocalDate fechaNacimiento;
+	private LocalDate birthDate;
 
 	/** DNI Getter */
 	public Integer getDni() {
@@ -22,47 +22,47 @@ public class Person {
 	}
 
 	/** DNI Setter */
-	public void setDni(Integer dNI) {
-		dni = dNI;
+	public void setDni(Integer dni) {
+		this.dni = dni;
 	}
 
-	/** Nombre Completo Getter */
-	public String getNombreCompleto() {
-		return nombreCompleto;
+	/** Name Getter */
+	public String getName() {
+		return name;
 	}
 
-	/** Nombre Completo Setter */
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	/** Name Setter */
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	/** Fecha Nacimiento Getter */
-	public String getFechaNacimiento() {
-		return this.fechaNacimiento.toString();
+	/** Birth Date Getter */
+	public String getBirthDate() {
+		return this.birthDate.toString();
 	}
 
-	/** Fecha Nacimiento Setter */
-	public void setFechaNacimiento(int day, int month, int year) {
-		this.fechaNacimiento = new LocalDate(year, month, day);
+	/** Birth Date Setter */
+	public void setBirthDate(int day, int month, int year) {
+		this.birthDate = new LocalDate(year, month, day);
 	}
 
-	/** Fecha Nacimiento Setter */
-	public void setFechaNacimiento(LocalDate localDate) {
-		this.fechaNacimiento = localDate;
+	/** Birth Date Setter */
+	public void setBirthDate(LocalDate localDate) {
+		this.birthDate = localDate;
 	}
 
 	/** Contructor */
-	public Person(Integer dni, String nombreCompleto, int day, int month, int year) {
+	public Person(Integer dni, String name, int day, int month, int year) {
 		super();
 		this.dni = dni;
-		this.nombreCompleto = nombreCompleto;
-		this.fechaNacimiento = new LocalDate(year, month, day);
+		this.name = name;
+		this.birthDate = new LocalDate(year, month, day);
 	}
 
 	/** Metodo que muestra los datos de la persona */
 	public void showDetails() {
-		System.out.println("Nombre: " + this.getNombreCompleto() + "\nDNI: " + this.getDni() + "\nFechaNacimiento: "
-				+ this.getFechaNacimiento());
+		System.out.println(
+				"Nombre: " + this.getName() + "\nDNI: " + this.getDni() + "\nFechaNacimiento: " + this.getBirthDate());
 	}
 
 }

@@ -8,36 +8,35 @@ package nttdata.javat3.business;
  */
 public class Employee extends Person {
 	/** Categoria del trabajador */
-	private String categoria;
+	private String category;
 	/** Proyecto en el que esta designado el empleado */
-	private String proyecto;
+	private String project;
 
-	/** Categoria Getter */
-	public String getCategoria() {
-		return categoria;
+	/** Category Getter */
+	public String getCategory() {
+		return category;
 	}
 
-	/** Categoria Setter */
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	/** Category Setter */
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
-	/** Proyecto Getter */
-	public String getProyecto() {
-		return proyecto;
+	/** Project Getter */
+	public String getProject() {
+		return project;
 	}
 
-	/** Proyecto Setter */
-	public void setProyecto(String proyecto) {
-		this.proyecto = proyecto;
+	/** Project Setter */
+	public void setProject(String project) {
+		this.project = project;
 	}
 
 	/** Constructor de empleado, herendando info de Person */
-	public Employee(Integer dni, String nombreCompleto, int day, int month, int year, String categoria,
-			String proyecto) {
-		super(dni, nombreCompleto, day, month, year);
-		this.categoria = categoria;
-		this.proyecto = proyecto;
+	public Employee(Integer dni, String name, int day, int month, int year, String category, String project) {
+		super(dni, name, day, month, year);
+		this.category = category;
+		this.project = project;
 	}
 
 	/**
@@ -46,7 +45,7 @@ public class Employee extends Person {
 	@Override
 	public void showDetails() {
 		super.showDetails();
-		System.out.println("Categoria: " + this.categoria + "\nProyecto: " + this.proyecto);
+		System.out.println("Categoria: " + this.category + "\nProyecto: " + this.project);
 	}
 
 }

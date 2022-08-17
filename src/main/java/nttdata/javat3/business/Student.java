@@ -2,55 +2,59 @@ package nttdata.javat3.business;
 
 /**
  * Clase que almacena la informacion de un estudiante
+ * 
  * @author Victor Carrasco
  *
  */
-public class Student extends Person{
+public class Student extends Person {
 	/**
 	 * Enum para guardar la modalidad de los alumnos
-	 * @author okami
+	 * 
+	 * @author Victor Carrasco
 	 *
 	 */
-	enum Modalidad {DAM, DAW};
-	/** Nombre del Centro Educativo*/
-	private String centroEducativo;
-	/** Modalidad del alumno*/
-	private Modalidad modalidad;
-	
-	/** Centro Educativo Getter*/
-	public String getCentroEducativo() {
-		return centroEducativo;
+	enum Modality {
+		DAM, DAW
+	};
+
+	/** Nombre del Centro Educativo */
+	private String school;
+	/** Modalidad del alumno */
+	private Modality modality;
+
+	/** School Getter */
+	public String getSchool() {
+		return school;
 	}
 
-	/** Centro Educativo Setter*/
-	public void setCentroEducativo(String centroEducativo) {
-		this.centroEducativo = centroEducativo;
+	/** School Setter */
+	public void setSchool(String school) {
+		this.school = school;
 	}
 
-	/** Modalidad Getter*/
-	public Modalidad getModalidad() {
-		return modalidad;
+	/** Modality Getter */
+	public Modality getModality() {
+		return modality;
 	}
 
-	/** Modalidad Setter*/
-	public void setModalidad(Modalidad modalidad) {
-		this.modalidad = modalidad;
+	/** Modality Setter */
+	public void setModality(Modality modality) {
+		this.modality = modality;
 	}
 
-	/** Constructor*/
-	public Student(Integer dni, String nombreCompleto, int day, int month, int year, String centroEducativo,
-			Modalidad modalidad) {
-		super(dni, nombreCompleto, day, month, year);
-		this.centroEducativo = centroEducativo;
-		this.modalidad = modalidad;
+	/** Constructor */
+	public Student(Integer dni, String name, int day, int month, int year, String school, Modality modality) {
+		super(dni, name, day, month, year);
+		this.school = school;
+		this.modality = modality;
 	}
-	
+
 	/**
 	 * ShowDetails incluyendo categoria y proyecto
 	 */
 	@Override
 	public void showDetails() {
 		super.showDetails();
-		System.out.println("Categoria: " + this.centroEducativo + "\nProyecto: " + this.modalidad);
+		System.out.println("Categoria: " + this.school + "\nProyecto: " + this.modality);
 	}
 }
