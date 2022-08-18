@@ -13,36 +13,59 @@ public class Student extends Person {
 	 * @author Victor Carrasco
 	 *
 	 */
-	enum Modality {
+	public enum Modality {
 		DAM, DAW
 	};
 
+	
 	/** Nombre del Centro Educativo */
 	private String school;
 	/** Modalidad del alumno */
 	private Modality modality;
 
-	/** School Getter */
+	
+	/**
+	 * school getter
+	 * @return
+	 */
 	public String getSchool() {
 		return school;
 	}
 
-	/** School Setter */
+	/**
+	 * school setter
+	 * @param school
+	 */
 	public void setSchool(String school) {
 		this.school = school;
 	}
 
-	/** Modality Getter */
+	/**
+	 * modality getter
+	 * @return
+	 */
 	public Modality getModality() {
 		return modality;
 	}
 
-	/** Modality Setter */
+	/**
+	 * modalilty setter
+	 * @param modality
+	 */
 	public void setModality(Modality modality) {
 		this.modality = modality;
 	}
 
-	/** Constructor */
+	/**
+	 * Constructor
+	 * @param dni
+	 * @param name
+	 * @param day
+	 * @param month
+	 * @param year
+	 * @param school
+	 * @param modality
+	 */
 	public Student(Integer dni, String name, int day, int month, int year, String school, Modality modality) {
 		super(dni, name, day, month, year);
 		this.school = school;
@@ -53,8 +76,12 @@ public class Student extends Person {
 	 * ShowDetails incluyendo categoria y proyecto
 	 */
 	@Override
-	public void showDetails() {
-		super.showDetails();
-		System.out.println("Categoria: " + this.school + "\nProyecto: " + this.modality);
+	public String showDetails() {
+		String details = " \nINFORMACION";
+		//uso la funcion concat porque es mas rapida a la hora de concatenar texto que + o un StringBuilder
+		details = details.concat("\n\tdni: ").concat(this.dni.toString()).concat("\n\tname: ").concat(name).concat("\n\tbirth date: ")
+				.concat(this.birthDate.toString()).concat("\n\tschool: ").concat(this.school).concat("\n\tmodality: ")
+				.concat(this.modality.toString());
+		return details;
 	}
 }

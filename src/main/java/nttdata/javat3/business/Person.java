@@ -8,61 +8,93 @@ import org.joda.time.LocalDate;
  * @author Victor Carrasco
  *
  */
-public class Person {
+public abstract  class Person {
+	
 	/** numero unico encargado de identificar a una persona */
-	private Integer dni;
+	protected Integer dni;
 	/** nombre completo de la persona */
-	private String name;
+	protected String name;
 	/** fecha de nacimiento */
-	private LocalDate birthDate;
+	protected LocalDate birthDate;
 
-	/** DNI Getter */
+	
+	/**
+	 * dni getter 
+	 * @return
+	 */
 	public Integer getDni() {
 		return dni;
 	}
 
-	/** DNI Setter */
+	/**
+	 * dni setter
+	 * @param dni
+	 */
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
 
-	/** Name Getter */
+	/**
+	 * name getter
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
-	/** Name Setter */
+	/**
+	 * name setter
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/** Birth Date Getter */
+	/**
+	 * Birth Date getter
+	 * @return
+	 */
 	public String getBirthDate() {
 		return this.birthDate.toString();
 	}
 
-	/** Birth Date Setter */
+	/**
+	 * Birth Date Setter usando el dia, mes y año
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
 	public void setBirthDate(int day, int month, int year) {
 		this.birthDate = new LocalDate(year, month, day);
 	}
 
-	/** Birth Date Setter */
+	/**
+	 * Birth Date Setter recibiendo un objeto de tipo LocalDate
+	 * @param localDate
+	 */
 	public void setBirthDate(LocalDate localDate) {
 		this.birthDate = localDate;
 	}
 
-	/** Contructor */
-	public Person(Integer dni, String name, int day, int month, int year) {
+	/**
+	 * Constructor
+	 * @param dni
+	 * @param name
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
+	protected Person(Integer dni, String name, int day, int month, int year) {
 		super();
 		this.dni = dni;
 		this.name = name;
 		this.birthDate = new LocalDate(year, month, day);
 	}
 
-	/** Metodo que muestra los datos de la persona */
-	public void showDetails() {
-		System.out.println(
-				"Nombre: " + this.getName() + "\nDNI: " + this.getDni() + "\nFechaNacimiento: " + this.getBirthDate());
-	}
+	/**
+	 * Metodo que muestra los datos de la persona
+	 * @return
+	 */
+	public abstract String showDetails();
 
 }

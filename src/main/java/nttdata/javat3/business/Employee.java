@@ -12,27 +12,48 @@ public class Employee extends Person {
 	/** Proyecto en el que esta designado el empleado */
 	private String project;
 
-	/** Category Getter */
+	/**
+	 * category getter
+	 * @return
+	 */
 	public String getCategory() {
 		return category;
 	}
 
-	/** Category Setter */
+	/**
+	 * category setter
+	 * @param category
+	 */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
-	/** Project Getter */
+	/**
+	 * project getter
+	 * @return
+	 */
 	public String getProject() {
 		return project;
 	}
 
-	/** Project Setter */
+	/**
+	 * project setter
+	 * @param project
+	 */
 	public void setProject(String project) {
 		this.project = project;
 	}
 
-	/** Constructor de empleado, herendando info de Person */
+	/**
+	 * Constructor
+	 * @param dni
+	 * @param name
+	 * @param day
+	 * @param month
+	 * @param year
+	 * @param category
+	 * @param project
+	 */
 	public Employee(Integer dni, String name, int day, int month, int year, String category, String project) {
 		super(dni, name, day, month, year);
 		this.category = category;
@@ -42,10 +63,12 @@ public class Employee extends Person {
 	/**
 	 * ShowDetails incluyendo categoria y proyecto
 	 */
-	@Override
-	public void showDetails() {
-		super.showDetails();
-		System.out.println("Categoria: " + this.category + "\nProyecto: " + this.project);
+	public String showDetails() {
+		String details = "\nINFORMACION";
+		details = details.concat("\n\tdni: ").concat(this.dni.toString()).concat("\n\tname: ").concat(name).concat("\n\tbirth date: ")
+				.concat(this.birthDate.toString()).concat("\n\tcategory: ").concat(this.category).concat("\n\tproject: ")
+				.concat(this.project);
+		return details;
 	}
 
 }
